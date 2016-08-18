@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.paddle.inter.TestOperation">
+    <cache eviction="LRU" type="com.paddle.redis.LoggingRedisCache" />
+
+    <resultMap type="Test" id="testList">
+		<id column="id" property="id"/>
+		<result column="text" property="text" jdbcType="VARCHAR"/>
+	</resultMap>
+    <select id="selectTest" parameterType="No" resultMap="testList" useCache="true">
+        select * from test
+    </select>
+
+    <insert id="addTest" parameterType="Test" useGeneratedKeys="true" keyProperty="id">
+    	insert into test(id,text) values (#{id},#{text})
+    </insert>
+
+    <update id="updateTest" parameterType="Test">
+        update test set text=#{text} where id=#{id}
+    </update>
+
+    <delete id="deleteTest" parameterType="No">
+        delete from test where id=#{noid}
+    </delete>
+
+</mapper>

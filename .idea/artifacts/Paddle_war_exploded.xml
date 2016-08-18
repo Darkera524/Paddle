@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Paddle:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Paddle_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Paddle/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Paddle" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
